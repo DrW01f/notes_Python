@@ -1,7 +1,7 @@
 
 
-
 def Main():
+    print("Hi")
     pass
 
 
