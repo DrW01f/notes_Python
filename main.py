@@ -59,7 +59,6 @@ def create_info(data: list) -> None:
                 #id=input("Введите имя контакта:\n"),
                 head=input("Введите заголовок заметки:\n"),
                 note_body=input("Введите текст заметки:\n"),
-                create_time =  time.ctime(os.path.getctime(full_name_file())),
                 last_edit_time = time.ctime(os.path.getmtime(full_name_file()))
                 )
             )
@@ -85,7 +84,6 @@ def show_info(notes: list) -> None:
         note_dict = dict(
                 head = "Заголовок",
                 note_body= "Содержание заметки",
-                create_time="Время создания",
                 last_edit_time="Время последнего редактирования"            
                 )
         info = str()
@@ -162,6 +160,7 @@ def change_info(data: list)->None:
                             print("Введено неправильное значение")
                     
                     print(f"Заметка № {number} успешно изменена")            
+                    elem["last_edit_time"] = time.ctime(os.path.getmtime(full_name_file()))
                     break
                 else:
                     print("Такой заметки не существует")
